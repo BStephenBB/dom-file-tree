@@ -29,12 +29,24 @@ function buildFolder({ node, parent, depth }) {
   return details
 }
 
-function buildFile() {
-  // TODO
+function buildFile({ node, parent, depth }) {
+  // create elements
+  const text = document.createTextNode(node.textContent)
+  const div = document.createElement('div')
+  const button = document.createElement('button')
+  // set indent
+  button.style.setProperty('--indent-padding', `${depth * INDENT_INCREMENT}px`)
+  // connect elements
+  div.append(text)
+  button.append(div)
+  parent.append(button)
+
+  return button
 }
 
-const buildNode = (nodeInfo) =>
+function buildNode(nodeInfo) {
   nodeInfo.node.nodeName === NODES.TEXT ? buildFile(nodeInfo) : buildFolder(nodeInfo)
+}
 
 
 function renderNode(nodeInfo) {
