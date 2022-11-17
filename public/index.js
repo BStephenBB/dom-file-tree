@@ -1,3 +1,4 @@
+const INDENT_INCREMENT = 24
 const NODES = Object.freeze({
   HTML: 'HTML',
   TEXT: '#text',
