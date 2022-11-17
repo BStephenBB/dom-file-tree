@@ -167,6 +167,14 @@ summary {
   color: var(--white);
 }
 
+/* the head tag should be last */
+.head {
+  order: 1;
+}
+/* change the folder icon for head tag */
+.head > summary div::after {
+  background: url('icon-sprite.png') calc(-1 * var(--sprite-interval)) 0px;
+}
 
 /* --- styles for the "action" (bottom) section --- */
 .actions {
