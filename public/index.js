@@ -5,8 +5,28 @@ const NODES = Object.freeze({
   COMMENT: '#comment',
 })
 
-function buildFolder() {
-  // TODO 
+function buildFolder({ node, parent, depth }) {
+  // create elements
+  const text = document.createTextNode(node.nodeName)
+  const span = document.createElement('span')
+  const div = document.createElement('div')
+  const summary = document.createElement('summary')
+  const details = document.createElement('details')
+  // set indent
+  summary.style.setProperty('--indent-padding', `${depth * INDENT_INCREMENT}px`)
+  // account for head tag
+  if (node.nodeName === NODES.HEAD) {
+    details.classList.add('head')
+  }
+  // connect elements
+  span.append(text)
+  div.append(span)
+  summary.append(div)
+  details.append(summary)
+  // append to parent
+  parent.append(details)
+
+  return details
 }
 
 function buildFile() {
