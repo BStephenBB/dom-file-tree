@@ -5,11 +5,17 @@ const NODES = Object.freeze({
   COMMENT: '#comment',
 })
 
-function buildNode() {
+function buildFolder() {
   // TODO 
-  // will need to either render a file or folder node
-  // going to have to create and stitch together a bunch of elements
 }
+
+function buildFile() {
+  // TODO
+}
+
+const buildNode = (nodeInfo) =>
+  nodeInfo.node.nodeName === NODES.TEXT ? buildFile(nodeInfo) : buildFolder(nodeInfo)
+
 
 function renderNode(nodeInfo) {
   const { node, parent, depth = 0 } = nodeInfo
