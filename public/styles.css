@@ -81,6 +81,93 @@ button {
   padding-left: var(--base-padding);
 }
 
+/* --- styles for the file tree --- */
+.file-tree {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-bottom: 1px solid #e2e2e2;
+  --gap-size: 10px;
+  --text: #666666;
+}
+
+/* folder wrapper */
+.file-tree summary div {
+  display: flex;
+  align-items: center;
+  text-transform: lowercase;
+  gap: var(--gap-size);
+}
+/* "plus" icon next to folders */
+.file-tree summary div::before {
+  content: '';
+  height: var(--sprite-interval);
+  width: 9px;
+  display: block;
+  opacity: 0.3;
+  position: relative;
+  top: 1px;
+  background: url('icon-sprite.png') calc(-4 * var(--sprite-interval) - 2px) 0px;
+}
+/* change to "minus" icon when folder is open */
+.file-tree details[open] > summary div::before {
+  background-position: calc(-5 * var(--sprite-interval) - 2px) 0px;
+}
+/* folder icon */
+.file-tree summary div::after {
+  content: '';
+  width: 14px;
+  height: var(--sprite-interval);
+  display: block;
+  background: url('icon-sprite.png') calc(-0 * var(--sprite-interval)) 0px;
+}
+/* folder title (should be last) */
+.file-tree summary span {
+  order: 2;
+  color: var(--text);
+}
+
+/* file wrapper */
+.file-tree button,
+summary {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  padding-left: calc(var(--base-padding) + var(--indent-padding));
+}
+
+.file-tree button {
+  padding-left: calc(var(--base-padding) + var(--indent-padding) + 18px);
+  text-align: left;
+}
+
+/* file icon */
+.file-tree button div::before {
+  content: '';
+  width: 14px;
+  height: var(--sprite-interval);
+  display: block;
+  background: url('icon-sprite.png') calc(-2 * var(--sprite-interval)) 0px;
+}
+
+.file-tree button div {
+  display: flex;
+  gap: var(--gap-size);
+  color: var(--text);
+}
+
+.file-tree button:focus,
+.file-tree summary:focus {
+  background: var(--primary);
+}
+.file-tree button:focus div,
+.file-tree summary:focus span {
+  color: var(--white);
+}
+
+
 /* --- styles for the "action" (bottom) section --- */
 .actions {
   height: 50px;
