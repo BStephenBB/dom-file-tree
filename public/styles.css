@@ -80,3 +80,33 @@ button {
   align-items: center;
   padding-left: var(--base-padding);
 }
+
+/* --- styles for the "action" (bottom) section --- */
+.actions {
+  height: 50px;
+  padding: 0 var(--base-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.actions button {
+  border-radius: 2px;
+  color: var(--white);
+  height: 30px;
+  padding: 0 16px;
+  background: var(--primary);
+  border: 1px solid #3c78dc;
+}
+.actions button:hover {
+  opacity: 0.85;
+}
+
+.actions a {
+  text-decoration: none;
+  color: var(--primary);
+}
+.actions a:hover {
+  text-decoration: underline;
+}
