@@ -1,0 +1,21 @@
+{
+  "name": "dom-file-tree",
+  "version": "1.0.0",
+  "description": "Display a DOM tree as a file system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Stephen Brown-Bourne",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  }
+}
