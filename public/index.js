@@ -25,3 +25,12 @@ function renderNode(nodeInfo) {
 
   children.forEach((child) => renderNode({ node: child, parent: newParent, depth: newDepth }))
 }
+
+// some random html to render the file tree with:
+const htmlString =
+  '<html><head><meta charset="UTF-8"><title>Page title</title></head><body><p>Some Text <!-- A Comment --> More Text</p><section>hello<div>world<button>foobar</button></div></section></body></html>'
+const parser = new DOMParser()
+const html = parser.parseFromString(htmlString, 'text/html').querySelector('html')
+
+// render the file tree
+renderNode({ node: html, parent: document.querySelector('.file-tree') })
