@@ -46,7 +46,7 @@ function buildFile({ node, parent, depth }) {
 }
 
 function buildNode(nodeInfo) {
-  nodeInfo.node.nodeName === NODES.TEXT ? buildFile(nodeInfo) : buildFolder(nodeInfo)
+  return nodeInfo.node.nodeName === NODES.TEXT ? buildFile(nodeInfo) : buildFolder(nodeInfo)
 }
 
 
